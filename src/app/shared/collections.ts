@@ -1,3 +1,4 @@
 export enum CollectionNames {
-    ITEMS = 'items'
+    ITEMS = 'items',
+    STORES = 'stores'
 }

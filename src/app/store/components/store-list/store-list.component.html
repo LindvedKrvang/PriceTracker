@@ -1,0 +1,17 @@
+<price-tracker-header [title]="'Stores'"></price-tracker-header>
+<ion-content>
+    <ion-list>
+        <ion-card *ngFor="let store of stores">
+            <ion-card-header>
+                <ion-card-title>
+                    {{store.name}}
+                </ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </ion-list>
+    <ion-fab [horizontal]="'end'" [vertical]="'bottom'" [slot]="'fixed'" (click)="createStoreClicked()">
+        <ion-fab-button>
+            <ion-icon [name]="'add'"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

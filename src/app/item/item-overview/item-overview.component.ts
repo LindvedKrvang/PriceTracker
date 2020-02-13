@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {CreateItemComponent} from '../create-item/create-item.component';
 import {CollectionNames} from '../../shared/collections';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import {Item} from '../item-shared/item';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {Item} from '../../shared/entities';
 
 @Component({
     selector: 'app-item-overview',
@@ -19,19 +19,15 @@ export class ItemOverviewComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.firestore.collection<Item>(CollectionNames.ITEMS).snapshotChanges().subscribe(value => {
-            this.items = value.map(item => {
+        this.firestore.collection<Item>(CollectionNames.ITEMS).snapshotChanges().subscribe(items => {
+            this.items = items.map(item => {
+                const doc = item.payload.doc;
                 return {
-                    id: item.payload.doc.id,
-                    ...item.payload.doc.data()
+                    id: doc.id,
+                    ...doc.data()
                 } as Item;
             });
         });
-        // console.log(itemsCollection);
-        // itemsCollection.get().subscribe(items => items.forEach(item => console.log({
-        //     id: item.id,
-        //     ...item.data()
-        // } as Item)));
     }
 
     public async openNewItemModal(): Promise<void> {

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Item} from '../item-shared/item';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {CollectionNames} from '../../shared/collections';
+import {Item} from '../../shared/entities';
 
 @Component({
     selector: 'app-create-item',
@@ -39,7 +39,6 @@ export class CreateItemComponent implements OnInit {
     }
 
     private async saveItemToDb(item: Item) {
-        const itemsCollections = this.firestore.collection(CollectionNames.ITEMS);
-        await itemsCollections.add(item);
+        await this.firestore.collection(CollectionNames.ITEMS).add(item);
     }
 }
