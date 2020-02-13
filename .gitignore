@@ -29,3 +29,6 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+#Exclude Firebase configuration
+**/firebase.config.ts

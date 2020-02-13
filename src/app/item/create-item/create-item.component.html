@@ -1,0 +1,21 @@
+<ion-content class="create-item-modal" (click)="dismissModal()">
+        <ion-card (click)="contentClicked($event)" [formGroup]="form">
+            <ion-card-header>
+                <ion-card-subtitle>
+                    <ion-icon [name]="'close'" (click)="dismissModal()"></ion-icon>
+                </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-item [lines]="'none'">
+                <ion-card-content>
+                    <ion-label>
+                        Name:
+                    </ion-label>
+                    <ion-input [type]="'text'" [placeholder]="'Item name'" [formControlName]="'name'"></ion-input>
+                </ion-card-content>
+            </ion-item>
+            <ion-button [expand]="'block'" (click)="saveItemClicked($event)">
+                Save
+            </ion-button>
+        </ion-card>
+</ion-content>

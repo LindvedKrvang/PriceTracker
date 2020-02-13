@@ -1,0 +1,25 @@
+ion-content {
+  --background: transparent;
+
+  ion-card {
+    --background: var(--ion-color-light);
+    height: inherit;
+    top: 40%;
+    padding: 5px;
+
+    ion-item {
+      --background: var(--ion-color-light);
+    }
+
+    ion-card-header {
+      padding: 0;
+
+      ion-icon {
+        padding-top: 5px;
+        padding-right: 5px;
+        float: right;
+        font-size: 24px;
+      }
+    }
+  }
+}
